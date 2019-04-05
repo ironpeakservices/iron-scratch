@@ -14,7 +14,7 @@ This is based on the empty scratch image, but contains two additional things:
 ```
 FROM golang:alpine AS builder
 COPY main.go /
-RUN go build -ldflags '-w -s -extldflags "-static"' -o /app /
+RUN go build -ldflags '-w -s -extldflags "-static"' -o /app /main.go
 
 FROM ironpeakservices/go-scratch
 COPY --from=builder /app /app
