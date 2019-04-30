@@ -7,7 +7,7 @@ Check it out [on Docker Hub](https://hub.docker.com/r/ironpeakservices/go-scratc
 
 ## How is this different?
 This is based on the empty scratch image, but contains two additional things:
-- CA Certificates for verifying certificates
+- CA Certificates for verifying certificates ([location info](https://golang.org/src/crypto/x509/root_linux.go))
 - An unprivileged user
 
 ## Example
