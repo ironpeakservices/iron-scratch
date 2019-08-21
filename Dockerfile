@@ -1,7 +1,7 @@
 FROM alpine:3.10.2 AS builder
 
-# add ca certificates
-RUN apk add -U --no-cache ca-certificates
+# add ca certificates and timezone data files
+RUN apk add -U --no-cache ca-certificates tzdata
 
 # add unprivileged user
 RUN adduser -s /bin/true -u 1000 -D -h /app app \
