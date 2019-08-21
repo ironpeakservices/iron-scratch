@@ -23,5 +23,7 @@ COPY --from=builder /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
 # from now on, run as the unprivileged user
 USER app
 
+#foo
+
 # entrypoint
 ENTRYPOINT ["/app"]
