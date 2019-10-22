@@ -1,4 +1,4 @@
-FROM alpine:3.10.2 AS builder
+FROM alpine:3.10.3 AS builder
 
 # add ca certificates and timezone data files
 RUN apk add -U --no-cache ca-certificates tzdata
