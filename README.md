@@ -8,6 +8,7 @@ The default entrypoint is `/app`.
 ## How is this different?
 This is based on the empty scratch image, but contains two additional things:
 - CA Certificates for verifying certificates ([location info](https://golang.org/src/crypto/x509/root_linux.go))
+- Timezone files
 - An unprivileged user
 
 ## Example
