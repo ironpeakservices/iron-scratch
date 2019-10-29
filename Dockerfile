@@ -1,6 +1,7 @@
 FROM alpine:3.10.3 AS builder
 
 # add ca certificates and timezone data files
+# hadolint ignore=DL3018
 RUN apk add -U --no-cache ca-certificates tzdata
 
 # add unprivileged user
