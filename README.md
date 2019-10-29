@@ -2,7 +2,7 @@
 Secure base image for running Go applications.
 The default entrypoint is `/app`.
 
-Check it out [on Docker Hub](https://hub.docker.com/r/ironpeakservices/go-scratch)!
+`docker pull docker.pkg.github.com/ironpeakservices/scratch-go/scratch-go:3.10.3`
 
 
 ## How is this different?
@@ -19,3 +19,7 @@ RUN go build -ldflags '-w -s -extldflags "-static"' -o /app /main.go
 FROM ironpeakservices/go-scratch
 COPY --from=builder /app /app
 ```
+
+## Update policy
+Updates to the official alpine docker image are automatically created as a pull request and trigger linting & a docker build.
+When those checks complete without errors, a merge into master will trigger a deploy with the same version to packages.
