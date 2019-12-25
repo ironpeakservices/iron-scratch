@@ -1,4 +1,4 @@
-FROM alpine:3.11.0 AS builder
+FROM alpine:3.11.2 AS builder
 
 # add ca certificates and timezone data files
 # hadolint ignore=DL3018
