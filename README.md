@@ -14,11 +14,14 @@ This is based on the empty scratch image, but contains two additional things:
 ## Example
 ```
 FROM golang:alpine AS builder
+ENV GOOS=linux GOARCH=amd64 CGO_ENABLED=0
+RUN go build std
 COPY main.go /
-RUN go build -ldflags '-w -s -extldflags "-static"' -o /app /main.go
+RUN go build -trimpath -ldflags '-w -s -extldflags "-static"' -o /app /main.go
 
 FROM docker.pkg.github.com/ironpeakservices/iron-scratch/iron-scratch:3.10.3
 COPY --from=builder /app /app
+ENTRYPOINT ["/app"]
 ```
 
 ## Update policy
