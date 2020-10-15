@@ -1,5 +1,8 @@
 FROM alpine:3.12.0 AS builder
 
+# image owner label
+LABEL org.opencontainers.image.source https://github.com/ironpeakservices/iron-scratch
+
 # add ca certificates and timezone data files
 # hadolint ignore=DL3018
 RUN apk add -U --no-cache ca-certificates tzdata
