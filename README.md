@@ -2,7 +2,7 @@
 Secure base image for running Go applications.
 The default entrypoint is `/app`.
 
-`docker pull docker.pkg.github.com/ironpeakservices/iron-scratch/iron-scratch:3.10.3`
+`docker pull docker.pkg.github.com/ironpeakservices/iron-scratch/iron-scratch:xxx`
 
 
 ## How is this different?
@@ -19,7 +19,7 @@ RUN go build std
 COPY main.go /
 RUN go build -trimpath -ldflags '-w -s -extldflags "-static"' -o /app /main.go
 
-FROM docker.pkg.github.com/ironpeakservices/iron-scratch/iron-scratch:3.10.3
+FROM docker.pkg.github.com/ironpeakservices/iron-scratch/iron-scratch:xxx
 COPY --from=builder /app /app
 ENTRYPOINT ["/app"]
 ```

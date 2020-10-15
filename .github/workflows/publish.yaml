@@ -3,22 +3,34 @@ on:
     branches:
     - master
 
-name: push image
+name: Publish Image
 jobs:
   dockerpush:
     name: docker build
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2.3.3
-    - name: extract tag
-      id: vars
-      run: echo ::set-output name=alpine_version::$(grep '^FROM alpine' Dockerfile  | cut -d ' ' -f 2 | cut -d ':' -f 2)
-    - run: echo "Pushing version ${{ steps.vars.outputs.alpine_version }}"
-    - name: Publish to Registry
+    - 
+      uses: actions/checkout@v2.0.0
+    - 
+      uses: go-semantic-release/action@v1
+      id: version
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+    - 
+      run: echo "Pushing version ${{ steps.version.outputs.version }}"
+    - 
+      name: Publish to Registry
       uses: elgohr/Publish-Docker-Github-Action@2.22
       with:
         registry: docker.pkg.github.com
-        name: "ironpeakservices/iron-scratch/iron-scratch:${{ steps.vars.outputs.alpine_version }}"
+        name: "ironpeakservices/iron-scratch/iron-scratch:${{ steps.version.outputs.version }}"
         username: hazcod
         password: ${{ secrets.GITHUB_TOKEN }}
-
+    - 
+      name: Create GitHub release
+      uses: sondreb/action-release@master
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        draft: false
+        prerelease: false
+        tag: "${{ steps.version.outputs.version }}"
