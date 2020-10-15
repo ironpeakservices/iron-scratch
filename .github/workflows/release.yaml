@@ -28,9 +28,11 @@ jobs:
         password: ${{ secrets.PACKAGE_TOKEN }}
     - 
       name: Create GitHub release
-      uses: sondreb/action-release@master
+      uses: actions/create-release@v1.1.4
       with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        draft: false
-        prerelease: false
-        tag: "${{ steps.version.outputs.version }}"
+          tag_name: ${{ steps.version.outputs.version }}
+          release_name: iron-nginx
+          draft: false
+          prerelease: false
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
