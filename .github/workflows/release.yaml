@@ -31,7 +31,7 @@ jobs:
       uses: actions/create-release@v1.1.4
       with:
           tag_name: ${{ steps.version.outputs.version }}
-          release_name: iron-nginx
+          release_name: iron-scratch
           draft: false
           prerelease: false
       env:
