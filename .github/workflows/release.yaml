@@ -22,10 +22,10 @@ jobs:
       name: Publish to Registry
       uses: elgohr/Publish-Docker-Github-Action@2.22
       with:
-        registry: docker.pkg.github.com
-        name: "ironpeakservices/iron-scratch/iron-scratch:${{ steps.version.outputs.version }}"
+        registry: ghcr.io
+        name: "ghcr.io/ironpeakservices/iron-scratch:${{ steps.version.outputs.version }}"
         username: hazcod
-        password: ${{ secrets.GITHUB_TOKEN }}
+        password: ${{ secrets.PACKAGE_TOKEN }}
     - 
       name: Create GitHub release
       uses: sondreb/action-release@master
