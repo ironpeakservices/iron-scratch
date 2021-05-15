@@ -1,12 +1,12 @@
 # ironpeakservices/iron-scratch
-Secure base image for running Go applications.
+Secure base image for running statically compiled applications.
 The default entrypoint is `/app`.
 
 `docker pull ghcr.io/ironpeakservices/iron-scratch/iron-scratch:1.0.0`
 
 
 ## How is this different?
-This is based on the empty scratch image, but contains two additional things:
+This is based on the empty scratch image, but contains additional things:
 - CA Certificates for verifying certificates ([location info](https://golang.org/src/crypto/x509/root_linux.go))
 - Timezone files
 - An unprivileged user
