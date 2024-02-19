@@ -12,7 +12,7 @@ jobs:
     - 
       uses: actions/checkout@v3.5.3
     - 
-      uses: go-semantic-release/action@v1.21
+      uses: go-semantic-release/action@v1.23
       id: version
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
