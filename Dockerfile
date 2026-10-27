@@ -1,4 +1,4 @@
-FROM alpine:3.24.0 AS builder
+FROM alpine:3.24.3 AS builder
 
 # image owner label
 LABEL org.opencontainers.image.source https://github.com/ironpeakservices/iron-scratch
